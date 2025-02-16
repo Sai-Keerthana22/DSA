@@ -1,0 +1,92 @@
+Types of Binary Trees 🌳
+A binary tree is a tree where each node has at most two children. There are several types of binary trees based on their properties:
+
+1. Full Binary Tree
+Every node has either 0 or 2 children (no node has only one child).
+Example:
+
+      1
+     / \
+    2   3
+   / \
+  4   5
+2. Complete Binary Tree
+All levels are completely filled, except possibly the last level.
+The last level is filled from left to right.
+Example:
+
+      1
+     / \
+    2   3
+   / \  /
+  4   5 6
+3. Perfect Binary Tree
+A binary tree is perfect if all interior nodes have two children, and all leaf nodes are at the same level.
+Example:
+
+      1
+     / \
+    2   3
+   / \  / \
+  4   5 6  7
+4. Balanced Binary Tree
+The height difference between the left and right subtree of any node is at most 1.
+Example:
+
+      1
+     / \
+    2   3
+   / \
+  4   5
+Examples of balanced trees: AVL Tree, Red-Black Tree.
+5. Degenerate (Skewed) Binary Tree
+Every parent node has only one child (either left or right), forming a linked-list-like structure.
+Left Skewed:
+
+      1
+     /
+    2
+   /
+  3
+ /
+4
+Right Skewed:
+
+  1
+   \
+    2
+     \
+      3
+       \
+        4
+6. Binary Search Tree (BST)
+A sorted binary tree where:
+The left child contains values less than the parent.
+The right child contains values greater than the parent.
+Example:
+
+      8
+     / \
+    3   10
+   / \    \
+  1   6    14
+7. AVL Tree (Self-Balancing BST)
+A Balanced BST where the height difference between left and right subtrees is at most 1.
+Uses rotations to maintain balance.
+8. Red-Black Tree
+A self-balancing BST where:
+Each node is either red or black.
+Ensures O(log n) insertion, deletion, and search.
+9. Heap (Binary Heap)
+A complete binary tree with the heap property:
+Min-Heap: Parent nodes are smaller than children.
+Max-Heap: Parent nodes are greater than children.
+Example (Min-Heap):
+      1
+     / \
+    3   5
+   / \
+  7   9
+10. Trie (Prefix Tree)
+A special tree for string searching.
+Each path represents a word prefix.
