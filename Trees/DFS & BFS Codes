@@ -1,4 +1,4 @@
-////DFS Traversals:
+////DFS Traversals: DS: Stack
 
 1. Inorder Traversal  (2 types)
 Type 1: Recursion (Easy)
@@ -58,7 +58,7 @@ public List<Integer> preorderTraversal(TreeNode root) {
 same like inorder recursion
 
 
-/////BFS Traversal:(Level Order Traversal)   ***VVVVV Important*****
+/////BFS Traversal:(Level Order Traversal)   ***VVVVV Important*****  DS: Queue
 
 public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> q=new LinkedList<>();
