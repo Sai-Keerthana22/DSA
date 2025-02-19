@@ -1,0 +1,63 @@
+////1. Maximum Depth of a Binary Tree:
+
+ public int maxDepth(TreeNode root) {
+        if(root==null)return 0;
+         int lh=maxDepth(root.left);
+         int rh=maxDepth(root.right);
+
+        return 1+Math.max(lh,rh);
+    }
+-------------------------------------------
+/////2. Min Depth of a BT:
+
+public int minDepth(TreeNode root) {
+        if(root==null)return 0;
+        int lh=minDepth(root.left);
+        int rh=minDepth(root.right);
+         return (lh == 0 || rh == 0) ? lh+rh+1: Math.min(lh,rh) + 1;
+    }
+------------------------------------------
+/////3. Check if a BT is balanced:
+
+boolean balance(TreeNode root){
+          return maxDepth(root)==-1;
+} 
+public int maxDepth(TreeNode root) {
+         if(root==null)return 0;
+         int lh=maxDepth(root.left);
+         if(lh==-1)return -1;
+         int rh=maxDepth(root.right);
+         if(rh==-1)return -1;
+         if(Math.abs(lh-rh)>1)return -1; 
+         return 1+Math.max(lh,rh);
+    }
+-------------------------------------------
+/////4.Diameter of a BT:
+
+int balance(TreeNode root){
+          int a[]=new int[1];
+          maxDepth(root,a);
+          return a[0];
+}
+public int maxDepth(TreeNode root,int a[]) {
+         if(root==null)return 0;
+         int lh=maxDepth(root.left);
+         int rh=maxDepth(root.right);
+         a[0]=Math.max(a[0],(lh+rh));
+         return 1+Math.max(lh,rh);
+    }
+-------------------------------------------
+///////5. Maximum Path sum of a BT:
+
+int balance(TreeNode root){
+          int a[]=new int[1];
+          maxDepth(root,a);
+          return a[0];
+}
+public int maxDepth(TreeNode root,int a[]) {
+         if(root==null)return 0;
+         int lh=Math.max(0,maxDepth(root.left));
+         int rh=Math.max(0,maxDepth(root.right));
+         a[0]=Math.max(a[0],(lh+rh));
+         return root.val+Math.max(lh,rh);
+    }
