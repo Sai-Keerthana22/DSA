@@ -1,0 +1,71 @@
+//////////////////////////////////Top View   && Bottom View in Comments//////////////////
+
+Input: root[] = [10, 20, 30, 40, 60, 90, 100]
+              10
+          20      30
+       40    6090   100
+Output: [40, 20, 10, 30, 100]
+
+class Solution {
+    // Function to return a list of nodes visible from the top view
+    // from left to right in Binary Tree.
+    static class Pair{
+        Node node;
+        int col;
+        Pair(Node node,int col){
+            this.node=node;
+            this.col=col;
+        }
+    }
+    static ArrayList<Integer> topView(Node root) {
+        // code here
+        ArrayList<Integer> l=new ArrayList();
+        Map<Integer,Integer> map=new TreeMap();
+        Queue<Pair> q=new LinkedList();
+        q.add(new Pair(root,0));
+        while(!q.isEmpty()){
+            Pair p=q.poll();
+            int col=p.col;
+            Node node=p.node;
+            if(map.get(col)==null)map.put(col,node.data);  ///for bottom view line is map.put(col,node.data)
+            if(node.left!=null){
+                q.add(new Pair(node.left,col-1));
+            }
+            if(node.right!=null){
+                q.add(new Pair(node.right,col+1));
+            }
+        }
+        for(int i:map.keySet()){
+            l.add(map.get(i));
+        }
+        return l;
+    }
+}
+
+//////////////////////////////////Left View   && Right View in Comments//////////////////
+
+Input: root[] = [1, 2, 3, 4, 5, N, N]
+             1
+          2     3
+        4   5 N   N 
+Output: [1, 2, 4]
+
+class Solution {
+    // Function to return list containing elements of left view of binary tree.
+    ArrayList<Integer> leftView(Node root) {
+        // code here
+        ArrayList<Integer> l=new ArrayList<>();
+        if(root==null)return l;
+        left(root,0,l);
+        return l;
+    }
+    void left(Node root,int level,ArrayList<Integer> l){
+        if(root==null)return;
+        if(level==l.size()){
+            l.add(root.data);
+        }
+        left(root.left,level+1,l);   //// V.V 68 & 67 for right view
+        left(root.right,level+1,l);  ////
+    }
+    
+}
