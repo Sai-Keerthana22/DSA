@@ -1,0 +1,41 @@
+///////////////////////////////BFS or Level Order Traversal
+
+public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj){
+
+      ArrayList<Integer> l=new ArrayList();
+      boolean vis[]=new boolean[V];   /////V+1 for 1 based indexing to know the indexing look at example case
+      vis[0]=true;
+      Queue<Integer> q=new LinkedList();
+      q.add(0);                      //////keeps changing when given the starting index in the input
+      while(!q.isEmpty()){
+          int a=q.poll();
+          l.add(a);
+          for(Integer i: adj.get(a)){
+              if(!vis[i]){
+                vis[i]=true;
+                q.add(i);
+              }
+          }
+      }
+      return l;
+}
+
+
+////////////////////////////////////DFS Traversal
+public ArrayList<Integer> dfsOfGraph(ArrayList<ArrayList<Integer>> adj){
+      
+      ArrayList<Integer> l=new ArrayList();
+      boolean vis[]=new boolean[adj.size()];
+      dfs(0,vis,l,adj);
+      return l;
+}
+void dfs(int node,boolean vis[],ArrayList<Integer> l,ArrayList<ArrayList<Integer>> adj){
+
+      vis[node]=true;
+      l.add(node);
+      for(Integer i: adj.get(node)){
+          if(!vis[i]){
+            dfs(i,vis,l,adj);
+          }
+      }
+}
