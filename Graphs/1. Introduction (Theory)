@@ -1,0 +1,8 @@
+Keywords:
+* node
+* edge
+* DAG
+* Adjacency matrix(used only for small graphs)
+* Adjacency List(mostly used)
+* Connected & Non Connected Graphs
+* Visited array(boolean)
